@@ -1,25 +1,23 @@
 """Utility functions used to create custom Kubeflow components."""
 
-from typing import Any, Dict, List
-
-from google_cloud_pipeline_components import _image
+from typing import Any
 
 
 def build_custom_job_payload(
     *,
     display_name: str,
     image_uri: str,
-    args: List[str],
+    args: list[str],
     machine_type: str = 'n1-standard-4',
     service_account: str = '',
     network: str = '',
-    reserved_ip_ranges: List[str] = [],
+    reserved_ip_ranges: list[str] = [],
     enable_web_access: bool = False,
     encryption_spec_key_name: str = '',
     accelerator_type: str = 'ACCELERATOR_TYPE_UNSPECIFIED',
     accelerator_count: int = 0,
-) -> Dict[str, Any]:
-  """Generates payload for a CustomJob in a Sec4 horizontal compliant way.
+) -> dict[str, Any]:
+  """Generates payload for a CustomJob.
 
   Args:
     display_name: CustomJob display name. Can contain up to 128 UTF-8
